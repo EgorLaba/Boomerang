@@ -5,7 +5,7 @@
 //  Created by Egor Laba on 28.06.22.
 //
 
-import Foundation
+import UIKit
 
 protocol GalleryViewProtocol: AnyObject {
     
@@ -13,4 +13,5 @@ protocol GalleryViewProtocol: AnyObject {
 
 final class GalleryPresenter {
     
+    var videoURL: URL? = nil
 }

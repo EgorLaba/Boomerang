@@ -12,19 +12,102 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="GalleryViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="GalleryView" customModule="Boomerang" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSS-xH-w9k">
+                                <rect key="frame" x="50" y="94" width="314" height="400"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="AUo-1a-rju"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-0w-whg">
+                                <rect key="frame" x="0.0" y="584" width="414" height="60"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LMr-9C-PX9"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ph9-U9-sld">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="pGw-L6-3qa">
+                                <rect key="frame" x="155" y="514" width="104" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OO-ii-KGe">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MFw-oI-Uve"/>
+                                            <constraint firstAttribute="width" constant="40" id="QhU-uK-2ob"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.51763673293020585" green="0.41332998080436434" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="tapDeleteFrame:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KcC-dc-VmC"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alj-tN-C85">
+                                        <rect key="frame" x="32" y="0.0" width="40" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aN-5g-5T0">
+                                        <rect key="frame" x="64" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="6FW-uB-ooF"/>
+                                            <constraint firstAttribute="height" constant="40" id="O5Q-Uo-HxO"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.51763673290000001" green="0.4133299808" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="tapAddFrame:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Kxb-Ba-o4q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QSS-xH-w9k" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="87d-ay-UVd"/>
+                            <constraint firstItem="pGw-L6-3qa" firstAttribute="top" secondItem="QSS-xH-w9k" secondAttribute="bottom" constant="20" id="B2v-pO-GNK"/>
+                            <constraint firstItem="pGw-L6-3qa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ly1-7L-WV9"/>
+                            <constraint firstItem="8Ta-0w-whg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OOj-LR-qXq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Ta-0w-whg" secondAttribute="trailing" id="YLk-dB-tvV"/>
+                            <constraint firstItem="8Ta-0w-whg" firstAttribute="top" secondItem="pGw-L6-3qa" secondAttribute="bottom" constant="30" id="eM8-pI-dRt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QSS-xH-w9k" secondAttribute="trailing" constant="50" id="j6D-Fi-oum"/>
+                            <constraint firstItem="QSS-xH-w9k" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="t1A-6A-su5"/>
+                            <constraint firstItem="QSS-xH-w9k" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="wJT-k3-7i8"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="galleryCollectionView" destination="8Ta-0w-whg" id="cS1-KZ-DP6"/>
+                            <outlet property="timeLabel" destination="Alj-tN-C85" id="Lak-Qc-BnO"/>
+                            <outlet property="videoView" destination="QSS-xH-w9k" id="j1Q-oo-VqT"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="KwL-cg-PDL"/>
+                    <connections>
+                        <outlet property="addFrameButton" destination="8aN-5g-5T0" id="uzV-GK-iYS"/>
+                        <outlet property="deleteFrameButton" destination="5OO-ii-KGe" id="5y0-MR-252"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="98"/>
+            <point key="canvasLocation" x="1023.1884057971015" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="minus.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
